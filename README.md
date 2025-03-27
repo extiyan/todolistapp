@@ -6,17 +6,41 @@ Clone this repository by using the command
 
 ## Backend
 
+### Create AWS Services
+
+- DynamoDB Table
+  `Go to AWS DynamoDB Console → DynamoDB Console`
+  `Click "Create table"`
+  `Enter Table Name (e.g., ToDoTable)`
+  `Set Primary Key (Partition Key):`
+  `Name: id`
+  `Type: String`
+  `Set Capacity Mode:`
+  `Choose On-Demand (Recommended)`
+  `OR Provisioned (set Read & Write capacity manually)`
+  `Click "Create table"`
+  `Once created, go to Items → Click "Create item" to add test data.`
+
+- API Gateway
+
 - Open cloned repository in VS Code
-- Go to the backend folder by running the command 'cd backend'
-
-`cd backend`
-
+- Navigate to your backend project directory
+  `cd backend`
 - Once inside the backend folder, install dependencies by running
+  `npm install`
+- After installation of the dependencies, create a deployment package (ZIP).
+  `zip -r lambda_function.zip . -x "*.git*" "*.DS_Store" "node_modules/aws-sdk/*"`
+- Upload ZIP to AWS Lambda.
+  `Go to AWS Lambda Console → AWS Lambda`
+  `Click Create Function (or select an existing one)`
+  `Choose "Author from Scratch"`
+  `Set:`
+  `Runtime: Node.js`
+  `Handler: index.handler (or your file)`
+  `Under Code Source, upload the lambda_function.zip`
+  `Click Deploy`
+- Test the function by clicking "Test" and providing an event.
 
-`npm install`
-
-- After installation of the dependencies, Reveal in File Explorer the backend folder.
-- A window will open that will show all the files that are in the backend folder, select all the files and compressed them in a zip file. Name the zip file 'todofunctions'.
   This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
