@@ -1,8 +1,6 @@
 import {
   DeleteItemCommand,
-  GetItemCommand,
   PutItemCommand,
-  QueryCommand,
   ScanCommand,
   UpdateItemCommand,
 } from "@aws-sdk/client-dynamodb";
@@ -31,13 +29,7 @@ export const handler = async function (event) {
   try {
     switch (event.httpMethod) {
       case "GET":
-        if (event.queryStringParameters != null) {
-          body = await getToDosByProgress(event);
-        } else if (event.pathParameters != null) {
-          body = await getToDo(event.pathParameters.id);
-        } else {
-          body = await getAllToDo();
-        }
+        body = await getAllToDo();
         break;
       case "POST":
         body = await createToDo(event);
@@ -75,24 +67,6 @@ export const handler = async function (event) {
   }
 };
 
-const getToDo = async (toDoId) => {
-  console.log("getToDo");
-  try {
-    const params = {
-      TableName: process.env.DYNAMODB_TABLE_NAME,
-      Key: marshall({ id: toDoId }),
-    };
-
-    const { Item } = await ddbClient.send(new GetItemCommand(params));
-
-    console.log(Item);
-    return Item ? unmarshall(Item) : {};
-  } catch (e) {
-    console.error(e);
-    throw e;
-  }
-};
-
 const getAllToDo = async () => {
   console.log("getAllToDo");
   try {
@@ -104,32 +78,6 @@ const getAllToDo = async () => {
 
     console.log(Items);
     return Items ? Items.map((item) => unmarshall(item)) : {};
-  } catch (e) {
-    console.error(e);
-    throw e;
-  }
-};
-
-const getToDosByProgress = async (event) => {
-  console.log("getToDosByProgress");
-  try {
-    const toDoId = event.pathParameters.id;
-    const progress = event.queryStringParameters.progress;
-
-    const params = {
-      KeyConditionExpression: "id = :toDoId",
-      FilterExpression: "contains (progress, :progress)",
-      ExpressionAttributeValues: {
-        ":toDoId": { S: toDoId },
-        ":progress": { S: progress },
-      },
-      TableName: process.env.DYNAMODB_TABLE_NAME,
-    };
-
-    const { Tasks } = await ddbClient.send(new QueryCommand(params));
-
-    console.log(Tasks);
-    return Tasks ? Tasks.map((task) => unmarshall(task)) : {};
   } catch (e) {
     console.error(e);
     throw e;
