@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+# How to Run the Backend and Frontend Locally
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Clone this repository by using the command
+
+## `git clone https://github.com/extiyan/todolistapp.git`
+
+## Backend
+
+- Open cloned repository in VS Code
+- Go to the backend folder by running the command 'cd backend'
+
+## `cd backend`
+
+- Once inside the backend folder, install dependencies by running
+
+## `npm install`
+
+- After installation of the dependencies, Reveal in File Explorer the backend folder.
+- A window will open that will show all the files that are in the backend folder, select all the files and compressed them in a zip file. Name the zip file 'todofunctions'.
+  This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
