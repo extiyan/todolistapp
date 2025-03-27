@@ -9,7 +9,7 @@ Clone this repository by using the command
 ### Create AWS Services
 - Lambda
   #### Steps to Upload ZIP File
-      1. Navigate to your backend project directory
+      1. Navigate to backend project directory
          `cd backend`
       2. Install dependencies
          `npm install`
@@ -77,7 +77,7 @@ Clone this repository by using the command
 
 ## Frontend
 
-    1. Navigate to your backend project directory
+    1. Navigate to backend project directory
        `cd frontend`
     2. Install dependencies
        `npm install`
@@ -85,4 +85,50 @@ Clone this repository by using the command
     4. Run the application by executing the command
        `npm start`
 
+# Deploy Application in AWS S3
 
+#### Step 1: Build React App
+    1. Navigate to React project directory
+       `cd frontend`
+    2. Install dependencies (if not yet installed)
+       `npm install`
+    3. Build the app for production
+       `npm run build`
+
+#### Step 2: Create an S3 Bucket
+    1. Go to AWS S3 Console
+    2. Click "Create Bucket"
+    3. Set Bucket Name: (must be unique, e.g., my-todo-app)
+    4. Uncheck "Block all public access" (to allow public access"
+    5. Click Create Bucket
+
+#### Step 3: Upload the Static Files
+    1. Go to AWS S3 Console
+    2. Click on Your Bucket Name
+    3. Click Upload
+    4. Click "Add files" and select all files inside the build/ folder
+    5. Click Upload
+
+#### Step 4: Enable Static Website Hosting
+    1. Go to S3 -> Your Bucket -> Properties
+    2. Scroll down to Static website hosting
+    3. Click Edit -> Enable Static Website Hosting
+    4. Set Index document = index.html
+    5. Click Save Changes
+    6. Copy the Bucket Website Endpoint (this is the website URL)
+
+#### Step 5: Set Permissions for Public Access
+    1. Go to Permissions -> Bucket Policy
+    2. Add the following policy (replace your-bucket-name)
+      `{
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::your-bucket-name/*"
+          }
+        ]
+      }`
+    3. Click Save Changes
