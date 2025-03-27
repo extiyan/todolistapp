@@ -26,17 +26,18 @@ Clone this repository by using the command
       5. Test the function by clicking "Test" and providing an event.
 
 - DynamoDB Table
-      - Go to AWS DynamoDB Console → DynamoDB Console
-      - Click "Create table"
-      - Enter Table Name (e.g., ToDoTable)
-      - Set Primary Key (Partition Key):
-        - Name: id
-        - Type: String
-      - Set Capacity Mode:
-        - Choose On-Demand (Recommended)
-        - OR Provisioned (set Read & Write capacity manually)
-      - Click "Create table"
-      - Once created, go to Items → Click "Create item" to add test data.
+  
+        - Go to AWS DynamoDB Console → DynamoDB Console
+        - Click "Create table"
+        - Enter Table Name (e.g., ToDoTable)
+        - Set Primary Key (Partition Key):
+          - Name: id
+          - Type: String
+        - Set Capacity Mode:
+          - Choose On-Demand (Recommended)
+          - OR Provisioned (set Read & Write capacity manually)
+        - Click "Create table"
+        - Once created, go to Items → Click "Create item" to add test data.
 
 - API Gateway
   #### Step 1: Create a New API
