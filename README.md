@@ -32,6 +32,14 @@ Clone this repository by using the command
         -   Choose "Regional" for deployment
         -   Set API Name (e.g., ToDoAPI)
         -   Click Create API
+  
+  #### Step 2: Create a New API
+
+        -  In the left panel, select Resources
+        -  Click Actions → Create Resource
+        -  Set Resource Name: todos
+        -  Set Resource Path: /todos
+        -  Click Create Resource
 
   - Open cloned repository in VS Code
   - Navigate to your backend project directory
