@@ -9,23 +9,34 @@ Clone this repository by using the command
 ### Create AWS Services
 
 - DynamoDB Table
-  `Go to AWS DynamoDB Console → DynamoDB Console`
-  `Click "Create table"`
-  `Enter Table Name (e.g., ToDoTable)`
-  `Set Primary Key (Partition Key):`
-  `Name: id`
-  `Type: String`
-  `Set Capacity Mode:`
-  `Choose On-Demand (Recommended)`
-  `OR Provisioned (set Read & Write capacity manually)`
-  `Click "Create table"`
-  `Once created, go to Items → Click "Create item" to add test data.`
+
+  - `Go to AWS DynamoDB Console → DynamoDB Console`
+  - `Click "Create table"`
+  - `Enter Table Name (e.g., ToDoTable)`
+  - `Set Primary Key (Partition Key):`
+  - `Name: id`
+  - `Type: String`
+  - `Set Capacity Mode:`
+  - `Choose On-Demand (Recommended)`
+  - `OR Provisioned (set Read & Write capacity manually)`
+  - `Click "Create table"`
+  - `Once created, go to Items → Click "Create item" to add test data.`
 
 - API Gateway
 
-- Open cloned repository in VS Code
-- Navigate to your backend project directory
-  `cd backend`
+  #### Step 1: Create a New API
+
+        -   `Go to AWS API Gateway Console → API Gateway`
+        -   `Click Create API`
+        -   `Select "REST API" → Click Build`
+        -   `Choose "Regional" for deployment`
+        -   `Set API Name (e.g., ToDoAPI)`
+        -   `Click Create API`
+
+  - Open cloned repository in VS Code
+  - Navigate to your backend project directory
+    `cd backend`
+
 - Once inside the backend folder, install dependencies by running
   `npm install`
 - After installation of the dependencies, create a deployment package (ZIP).
