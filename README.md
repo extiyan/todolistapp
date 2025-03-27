@@ -26,12 +26,12 @@ Clone this repository by using the command
 
   #### Step 1: Create a New API
 
-        -   `Go to AWS API Gateway Console → API Gateway`
-        -   `Click Create API`
-        -   `Select "REST API" → Click Build`
-        -   `Choose "Regional" for deployment`
-        -   `Set API Name (e.g., ToDoAPI)`
-        -   `Click Create API`
+        -   Go to AWS API Gateway Console → API Gateway
+        -   Click Create API
+        -   Select "REST API" → Click Build
+        -   Choose "Regional" for deployment
+        -   Set API Name (e.g., ToDoAPI)
+        -   Click Create API
 
   - Open cloned repository in VS Code
   - Navigate to your backend project directory
