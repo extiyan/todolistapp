@@ -11,8 +11,10 @@ Clone this repository by using the command
   #### Steps to Upload ZIP File
       1. Navigate to your backend project directory
          `cd backend`
-      2. Create a deployment package (ZIP)
-      3. Upload ZIP to AWS Lambda:
+      2. Install dependencies
+         `npm install`
+      3. Create a deployment package (ZIP)
+      4. Upload ZIP to AWS Lambda:
          - Go to AWS Lambda Console
          - Click Create Function (or select an existing one)
          - Choose "Author from Scratch"
@@ -21,10 +23,9 @@ Clone this repository by using the command
            - Handler: index.handler (or your file)
          - Under Code Source, upload the lambda_function.zip
          - Click Deploy
-      4. Test the function by clicking "Test" and providing an event.
+      5. Test the function by clicking "Test" and providing an event.
 
 - DynamoDB Table
-
   - `Go to AWS DynamoDB Console → DynamoDB Console`
   - `Click "Create table"`
   - `Enter Table Name (e.g., ToDoTable)`
@@ -38,9 +39,7 @@ Clone this repository by using the command
   - `Once created, go to Items → Click "Create item" to add test data.`
 
 - API Gateway
-
   #### Step 1: Create a New API
-
         -   Go to AWS API Gateway Console → API Gateway
         -   Click Create API
         -   Select "REST API" → Click Build
@@ -49,7 +48,6 @@ Clone this repository by using the command
         -   Click Create API
   
   #### Step 2: Create a New API
-
         -  In the left panel, select Resources
         -  Click Actions → Create Resource
         -  Set Resource Name: todos
@@ -57,7 +55,6 @@ Clone this repository by using the command
         -  Click Create Resource
 
   #### Step 3: Create an HTTP Method (GET, POST, PUT, DELETE)
-
         -  Select the /todos resource
         -  Click Actions → Create Method
         -  Choose GET → Click the checkmark ✅
@@ -76,3 +73,15 @@ Clone this repository by using the command
         -  Deployment stage: prod (or create a new stage)
         -  Click Deploy
         -  Copy the Invoke URL (e.g., https://xyz123.execute-api.region.amazonaws.com/prod)
+
+## Frontend
+
+    1. Navigate to your backend project directory
+       `cd frontend`
+    2. Install dependencies
+       `npm install`
+    3. Open App.js and change API_BASE_URL value to the Invoke URL that you have copied
+    4. Run the application by executing the command
+       `npm start`
+
+
