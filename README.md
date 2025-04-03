@@ -48,7 +48,7 @@ Clone this repository by using the command
         -   Set API Name (e.g., ToDoAPI)
         -   Click Create API
   
-  #### Step 2: Create a New API
+  #### Step 2: Create New Resources
         -  In the left panel, select Resources
         -  Click Actions → Create Resource
         -  Set Resource Name: todos
